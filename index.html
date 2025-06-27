@@ -123,7 +123,15 @@
     Hinweis: Die hier verwendeten durchschnittlichen Cost-per-Follower-Werte basieren auf Erfahrungswerten aus LinkedIn-Kampagnen im Public Sector sowie typischen Marktpreisen für gezielte Follower-Zuwächse. Sie dienen der überschlägigen Einschätzung des Netzwerkwerts und sind nicht als exakte Marktpreise zu verstehen.
   </div>
 
-  <div class="result" id="totalValue">Gesamter Follower-Wert: 0 €</div>
+  
+  <div class="source-note">
+    Die Art des LinkedIn-Accounts beeinflusst, wie schwer oder leicht es ist, Follower zu gewinnen – und damit den geschätzten Wert. 
+    Privatrechtliche Accounts (z. B. Agenturen, Beratungen) haben es oft schwerer, Follower zu gewinnen, daher wird ihr Netzwerk höher bewertet. 
+    Persönliche Profile gewinnen dagegen leichter Follower, was zu einer niedrigeren Bewertung führt.
+  </div>
+
+  <div class="result" id="totalValue">
+Gesamter Follower-Wert: 0 €</div>
 
   <footer>
     Ein Tool von <strong>next:public</strong><br>
@@ -153,7 +161,7 @@
         "Gesamter Follower-Wert: " + totalValue.toLocaleString("de-DE", {minimumFractionDigits: 2}) + " €";
     }
 
-    document.querySelectorAll("input").forEach(input => {
+    document.querySelectorAll("input, select").forEach(input => {
       input.addEventListener("input", calculateValue);
     });
 
