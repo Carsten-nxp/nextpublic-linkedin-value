@@ -72,7 +72,17 @@
     <li><strong>Dienstleister & Externe</strong> – Beratungen, Agenturen oder Softwareanbieter mit Fokus auf den öffentlichen Sektor (Ø <strong>5 €/Follower</strong>)</li>
   </ul>
 
+  
   <div class="input-block">
+    <label for="accountType">Typ des LinkedIn-Accounts:</label>
+    <select id="accountType">
+      <option value="1.2">Privatrechtlich (z. B. Agentur, Beratung)</option>
+      <option value="1.0" selected>Öffentlich-rechtlich (z. B. Behörde, öff. Unternehmen)</option>
+      <option value="0.8">Persönlicher Account</option>
+    </select>
+  </div>
+  <div class="input-block">
+
     <label for="followers">Anzahl Follower:</label>
     <input type="number" id="followers" value="5000" min="0">
   </div>
@@ -134,7 +144,12 @@
         totalValue += share * cpv;
       }
 
-      document.getElementById("totalValue").innerText = 
+      
+      const accountFactor = parseFloat(document.getElementById("accountType").value) || 1.0;
+      const adjustedValue = totalValue * accountFactor;
+      document.getElementById("totalValue").innerText =
+        "Gesamter Follower-Wert (angepasst): " + adjustedValue.toLocaleString("de-DE", {minimumFractionDigits: 2}) + " €";
+      // Ursprünglicher Wert: " + totalValue.toFixed(2) + " €"; 
         "Gesamter Follower-Wert: " + totalValue.toLocaleString("de-DE", {minimumFractionDigits: 2}) + " €";
     }
 
