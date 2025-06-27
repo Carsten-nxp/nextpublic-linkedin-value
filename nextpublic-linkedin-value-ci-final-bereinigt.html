@@ -1,0 +1,270 @@
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>nextpublic-linkedin-value</title>
+  <style>
+    .tooltip {
+      margin-left: 0.3em;
+    }
+    .input-block label {
+      display: block;
+      margin-bottom: 0.5em;
+      font-weight: normal;
+    }
+    .row label {
+      margin-top: 1em;
+    }
+    @media (max-width: 768px) {
+      .row {
+        flex-direction: column;
+      }
+      .tooltip .tooltiptext {
+        width: 90vw;
+        left: 0;
+        right: 0;
+        margin: auto;
+        bottom: auto;
+        top: 120%;
+      }
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background: #F7F7F7;
+      color: #2F2C2B;
+      margin: 0;
+      padding: 2em;
+      max-width: 960px;
+      margin: auto;
+    }
+    h1 {
+      color: #652CB3;
+    }
+    .section {
+      background: #fff;
+      border-radius: 12px;
+      padding: 1.5em;
+      margin-bottom: 2em;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+    label {
+      font-weight: normal;
+    }
+    input, select {
+      padding: 0.6em;
+      width: 100%;
+      margin-top: 0.3em;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1em;
+      margin-bottom: 1em;
+    }
+    .row {
+      display: flex;
+      gap: 1em;
+      flex-wrap: wrap;
+    }
+    .col {
+      flex: 1;
+      min-width: 200px;
+    }
+    .tooltip {
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+      color: #652CB3;
+      margin-left: 6px;
+    }
+    .tooltip .tooltiptext {
+      visibility: hidden;
+      width: 280px;
+      background-color: #fff;
+      color: #2F2C2B;
+      text-align: left;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      padding: 1em;
+      position: absolute;
+      z-index: 1;
+      bottom: 125%;
+      left: 0;
+      box-shadow: 0px 0px 8px rgba(0,0,0,0.1);
+    }
+    .tooltip:hover .tooltiptext {
+      visibility: visible;
+    }
+    .result {
+      background: #A1C527;
+      color: #fff;
+      padding: 1em;
+      font-size: 1.4em;
+      text-align: center;
+      border-radius: 12px;
+      margin-top: 2em;
+    }
+    footer {
+      margin-top: 3em;
+      font-size: 0.9em;
+      text-align: center;
+    }
+  
+    @media (max-width: 960px) {
+      .row {
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+      .col {
+        flex: 1 1 100%;
+        min-width: 100%;
+      }
+    }
+    @media (max-width: 600px) {
+      .col {
+        flex: 1 1 100%;
+        min-width: 100%;
+      }
+    }
+    .tooltip .tooltiptext {
+      max-width: 280px;
+    }
+    </style>
+    
+</head>
+<body>
+  <h1>LinkedIn-Follower-Wert-Rechner</h1>
+  <p>
+    Berechne den geschätzten Wert deiner LinkedIn-Follower – mit Fokus auf Zielgruppen im öffentlichen Sektor.<br>
+    Der Rechner unterscheidet typische Rollenprofile in der Verwaltung und bewertet sie nach dem Aufwand, sie als Follower zu gewinnen.
+    Ideal für Kommunikationsverantwortliche, Public-Affairs-Teams und Sichtbarkeitsstrateg:innen.
+  </p>
+  <div class="section">
+    <div class="col">
+      <label for="followers">Anzahl Follower:</label>
+      <input type="number" id="followers" value="5000" min="0" />
+    </div>
+    <label>Zielgruppenverteilung
+      <span class="tooltip">❓
+        <span class="tooltiptext" style="font-weight: normal;">
+          Die Zielgruppen im öffentlichen Sektor unterscheiden sich stark im Aufwand und Wert ihrer Ansprache. 
+          Je schwerer eine Gruppe zu erreichen ist, desto höher der angenommene Wert.
+        </span>
+      </span>
+    </label>
+    <div class="row" style="flex-direction: column;">
+      <div class="col">
+        Top-Führungskräfte (%)<span class="tooltip">❓
+  <span class="tooltiptext" style="font-weight: normal;">
+    Staatssekretär:innen, Amtsleitungen in Kommunen, Vorstände öffentlicher Unternehmen<br>
+    ⌀ Wert pro Follower: <strong>15 €</strong>
+  </span>
+</span>
+        <input class="percent" value="10" />
+        <input class="cpv" value="15" type="hidden" />
+      </div>
+      <div class="col">
+        Fachverantwortliche (%)<span class="tooltip">❓
+  <span class="tooltiptext" style="font-weight: normal;">
+    Referatsleitungen, Strategieverantwortliche, Projektleitungen in Modernisierungsprogrammen<br>
+    ⌀ Wert pro Follower: <strong>12 €</strong>
+  </span>
+</span>
+        <input class="percent" value="20" />
+        <input class="cpv" value="12" type="hidden" />
+      </div>
+      <div class="col">
+        Verwaltungspersonal (%)<span class="tooltip">❓
+  <span class="tooltiptext" style="font-weight: normal;">
+    Fachabteilungen, Sachbearbeitung, Mitarbeitende in kommunalen Einrichtungen<br>
+    ⌀ Wert pro Follower: <strong>8 €</strong>
+  </span>
+</span>
+        <input class="percent" value="40" />
+        <input class="cpv" value="8" type="hidden" />
+      </div>
+      <div class="col">
+        Dienstleister & Externe (%)<span class="tooltip">❓
+  <span class="tooltiptext" style="font-weight: normal;">
+    Beratungen, Agenturen oder Softwareanbieter mit Fokus auf Verwaltung<br>
+    ⌀ Wert pro Follower: <strong>6 €</strong>
+  </span>
+</span>
+        <input class="percent" value="30" />
+        <input class="cpv" value="6" type="hidden" />
+      </div>
+    </div>
+    <label class="row">Wissenschaft & Forschung (%)<span class="tooltip">❓
+      <span class="tooltiptext" style="font-weight: normal;">
+        Hochschulen, Forschungsinstitute, Think Tanks, wissenschaftlich orientierte Profile<br>
+        ⌀ Wert pro Follower: <strong>10 €</strong>
+      </span>
+    </span></label>
+    <input class="percent" value="0" />
+    <input class="cpv" value="10" type="hidden" />
+
+    <label class="row">Sonstige / Nicht zuordenbar (%)<span class="tooltip">❓
+      <span class="tooltiptext" style="font-weight: normal;">
+        Privatpersonen, internationale Profile, Unternehmen ohne Public-Sektor-Bezug<br>
+        ⌀ Wert pro Follower: <strong>4 €</strong>
+      </span>
+    </span></label>
+    <input class="percent" value="0" />
+    <input class="cpv" value="4" type="hidden" />
+
+    <label for="accountType">Typ des LinkedIn-Accounts:
+      <span class="tooltip">❓
+        <span class="tooltiptext" style="font-weight: normal;">
+          Persönliche Profile erhalten oft leichter Follower, während Unternehmen (insbesondere mit privatrechtlichem Hintergrund) mehr investieren müssen. 
+          Der Faktor gleicht diese Unterschiede aus.
+        </span>
+      </span>
+    </label>
+    <select id="accountType">
+      <option value="1.2">Privatrechtlich (z. B. Agentur, Beratung)</option>
+      <option value="1.0" selected>Öffentlich-rechtlich (z. B. Behörde, öff. Unternehmen)</option>
+      <option value="0.8">Persönlicher Account</option>
+    </select>
+  </select>
+  <span class="tooltip">❓
+    <span class="tooltiptext" style="font-weight: normal;">
+      <strong>Privatrechtlich</strong>: schwerer Follower-Gewinn, daher Faktor <strong>1,2</strong><br>
+      <strong>Öffentlich-rechtlich</strong>: mittlerer Aufwand, Faktor <strong>1,0</strong><br>
+      <strong>Persönlich</strong>: leichter Follower-Zuwachs, Faktor <strong>0,8</strong>
+    </span>
+  </span>
+      <option value="1.2">Privatrechtlich (z. B. Agentur, Beratung)</option>
+      <option value="1.0" selected>Öffentlich-rechtlich (z. B. Behörde, öff. Unternehmen)</option>
+      <option value="0.8">Persönlicher Account</option>
+    </select>
+    <div class="result" id="totalValue">Gesamter Follower-Wert: 0 €</div>
+  </div>
+  <footer>
+    Ein Tool von <strong>next:public</strong>
+  </footer>
+
+  <script>
+    function calculateValue() {
+      const followers = parseInt(document.getElementById("followers").value) || 0;
+      const percents = document.querySelectorAll(".percent");
+      const cpvs = document.querySelectorAll(".cpv");
+      const factor = parseFloat(document.getElementById("accountType").value);
+
+      let total = 0;
+      for (let i = 0; i < percents.length; i++) {
+        const share = followers * ((parseFloat(percents[i].value) || 0) / 100);
+        const cpv = parseFloat(cpvs[i].value) || 0;
+        total += share * cpv;
+      }
+      total *= factor;
+      document.getElementById("totalValue").innerText =
+        "Gesamter Follower-Wert: " + total.toLocaleString("de-DE", {minimumFractionDigits: 2}) + " €";
+    }
+
+    document.querySelectorAll("input, select").forEach(el => {
+      el.addEventListener("input", calculateValue);
+    });
+    calculateValue();
+  </script>
+</body>
+</html>
